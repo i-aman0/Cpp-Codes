@@ -3,7 +3,7 @@
 #include<map>
 using namespace std;
 
-// given a tree, find the zig-zag traversal of the tree
+// given a tree, find the vertical traversal of the tree
 
 class node{
     public:
