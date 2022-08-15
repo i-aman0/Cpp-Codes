@@ -2,6 +2,7 @@
 #include<queue>
 using namespace std;
 
+// this is the code for diameter of the binary tree
 // the diameter of a binary tree is the longest path between two leaf nodes 
 
 class node{
