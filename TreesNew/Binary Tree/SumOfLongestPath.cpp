@@ -3,7 +3,8 @@
 #include<map>
 using namespace std;
 
-// given a tree, find the right view of the tree
+// given a tree, find the sum of the longest path between the leaf node and the root node
+// if the sum of two paths is equal, give preferance to the sum of the longer path
 
 class node{
     public:
@@ -147,29 +148,32 @@ int minHeight(node* root){
     return ans;
 }
 
-void solve(node* root, vector<int> &ans, int level){
+void solve(node* root, int sum, int &maxSum, int len, int &maxLen){
+    // base case
     if(root==NULL){
+        if(len>maxLen){
+            maxLen=len;
+            maxSum=sum;
+        }
+        else if(len==maxLen){
+            maxSum=max(sum, maxSum);
+        }
         return;
     }
 
-    // we entered into a new level
-    if(level==ans.size()){
-        ans.push_back(root->data);
-    }
-
-    // as we move to left of the tree or right of the tree, the level increases by 1
-    // in left view, we move to the left of the tree first and then to the right of the tree
-    // here we move to the right of the tree first and then to the left of the tree
-    solve(root->right, ans, level+1);
-    solve(root->left, ans, level+1);
+    sum=sum+root->data;
+    solve(root->left, sum, maxSum, len, maxLen);
+    solve(root->right, sum, maxSum, len, maxLen);
 }
 
-vector<int> rightView(node* root){
-    vector<int> ans;
-    
-    // initially we are at level 0
-    solve(root, ans, 0);
-    return ans;
+int longestSum(node* root){
+    int len=0;
+    int maxLen=0;
+    int sum=0;
+    int maxSum=INT_MIN;
+
+    solve(root, sum, maxSum, len, maxLen);
+    return maxSum;
 }
 
 
@@ -205,11 +209,8 @@ int main()
     cout<<"The minimum height of binary tree is : "<<minHeight(root)<<endl;
 
 
-    vector<int> res=rightView(root);
-    cout<<"The right view of the binary tree is : "<<endl;
-    for(auto i: res){
-        cout<<i<<" ";
-    }
+    cout<<"The sum of the longest path is : "<<longestSum(root)<<endl;
+    
     
 
     return 0;
