@@ -162,8 +162,8 @@ void solve(node* root, int sum, int &maxSum, int len, int &maxLen){
     }
 
     sum=sum+root->data;
-    solve(root->left, sum, maxSum, len, maxLen);
-    solve(root->right, sum, maxSum, len, maxLen);
+    solve(root->left, sum, maxSum, len+1, maxLen);
+    solve(root->right, sum, maxSum, len+1, maxLen);
 }
 
 int longestSum(node* root){
