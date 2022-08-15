@@ -3,7 +3,7 @@
 #include<map>
 using namespace std;
 
-// given a tree, find the top view of the tree
+// given a tree, find the bottom view of the tree
 
 class node{
     public:
@@ -147,7 +147,7 @@ int minHeight(node* root){
     return ans;
 }
 
-vector<int> topView(node* root){
+vector<int> bottomView(node* root){
     vector<int> ans;
 
     if(root==NULL){
@@ -165,10 +165,10 @@ vector<int> topView(node* root){
         node* frontNode=temp.first;
         int hd=temp.second;
 
-        // if one value is present for horizontal distance, then do nothing
-        if(topNode.find(hd)==topNode.end()){
-            topNode[hd]=frontNode->data;
-        }
+        // in top view we check if one value is present for horizontal distance, do nothing 
+        // but here we update the value for a horizontal distance when we find one without checking for any condition        
+        topNode[hd]=frontNode->data;
+        
 
         if(frontNode->left){
             q.push(make_pair(frontNode->left, hd-1));
@@ -220,7 +220,7 @@ int main()
     cout<<"The minimum height of binary tree is : "<<minHeight(root)<<endl;
 
 
-    vector<int> res=topView(root);
+    vector<int> res=bottomView(root);
     cout<<"The top view of the binary tree is : "<<endl;
     for(auto i: res){
         cout<<i<<" ";
