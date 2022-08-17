@@ -152,7 +152,7 @@ int minHeight(node* root){
 // the second part contains the sum of the subtree (left or right)
 pair<bool, int> isSumTreeFast(node* root){
     if(root == NULL){
-        // if root is null, we consider the tree to be subtree bcoz no data at root and no children as well
+        // if root is null, we consider the tree to be sumtree bcoz no data at root and no children as well
         // so store true in first part and 0 in second part
         pair<bool, int> ans=make_pair(true, 0);
         return ans;
