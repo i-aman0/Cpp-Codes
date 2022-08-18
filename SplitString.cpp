@@ -6,12 +6,13 @@ using namespace std ;
 vector <string> split(string s)
 {
 	vector<string> ans;
-	for (int i = 0; i < s.length(); i++)
+	int size=s.length();
+	for (int i = 0; i < size; i++)
 	{
 		int j = 0;
 		string s2;
 		// splitting bases on space " "
-		while(s[i+j]!= ' ' && (i+j)<s.length())
+		while(s[i+j]!= ' ' && (i+j)<size)
 		{
 			s2.push_back(s[i+j]);
 			j++;
