@@ -2,10 +2,10 @@
 #include<iostream>
 using namespace std;
 
-int size,n;
-int* arr;
+//int size,n;
+//int* arr;
 
-void print() //to print the array, for local: void print(int arr[], int n)
+void print(int arr[], int n) //to print the array, for local: void print(int arr[], int n)
 {
     for(int i=0;i<n;i++)
     {
@@ -13,7 +13,7 @@ void print() //to print the array, for local: void print(int arr[], int n)
     }
 }
 
-void insert(int item, int index)
+void insert(int arr[], int n, int item, int index)
 {
     for(int i=n-1;i>=index;i--)
     {
@@ -23,7 +23,7 @@ void insert(int item, int index)
     n=n+1;
 }
 
-void delete_at_index(int index)
+void delete_at_index(int arr[], int n, int index)
 {
     for(int i=index;i<n-1;i++)
     {
@@ -32,7 +32,7 @@ void delete_at_index(int index)
     n=n-1;
 }
 
-int search(int item)
+int search(int arr[], int n, int item)
 {
     int pos=-1;
     for(int i=0;i<n;i++)
@@ -46,12 +46,12 @@ int search(int item)
     return pos;
 }
 
-void delete_item(int item)
+void delete_item(int arr[], int n, int item)
 {
-    int index=search(item);
+    int index=search(arr, n, item);
     if(index!=-1)
     {
-        delete_at_index(index);
+        delete_at_index(arr, n, index);
     }
     else
     {
@@ -61,12 +61,13 @@ void delete_item(int item)
 
 int main()
 {
-    //int *arr;
-    //int size,n;
+    int *arr;
+    int size,n;
     cout<<"Enter the size of array"<<endl;
     cin>>size;
 
     arr=new int[size]; //creating dynamic array using new operator
+    memset(arr, 0, size);
 
     cout<<"Enter the number of elements to be stored in array"<<endl;
     cin>>n;
@@ -78,21 +79,21 @@ int main()
     }
 
     cout<<"The Original array is : ";
-    print();
+    print(arr, n);
     cout<<endl;
 
-    insert(20,3);
+    insert(arr, n, 20,3);
     cout<<"The Array after insertion is : ";
-    print(); //print(arr,n);
+    print(arr, n); //print(arr,n);
 
-    delete_at_index(3);
+    delete_at_index(arr, n, 3);
     cout<<endl;
     cout<<"The array after deleting index 3 element is : ";
-    print();
+    print(arr, n-1);
 
-    delete_item(90);
+    delete_item(arr, n, 90);
     cout<<endl;
     cout<<"The final array is : ";
-    print();
+    print(arr, n-1);
 
 }

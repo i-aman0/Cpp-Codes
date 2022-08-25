@@ -156,7 +156,7 @@ node* solve(node* root, int &k, int node){
         return root;
     }
 
-    node* leftAns;
+    
 }
 
 int ancestor(node* root, int k, int node){
