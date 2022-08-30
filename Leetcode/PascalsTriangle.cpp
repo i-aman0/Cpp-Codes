@@ -44,8 +44,7 @@ int main()
     int n;
     cout<<"Enter the number of rows"<<endl;
     cin>>n;
-    
-    cout<<"The Pascal's triangle containing "<<n<<"rows is : "<<endl;
+    cout<<"The Pascal's triangle containing "<<n<<" rows is : "<<endl;
     vector<vector<int> > ans=generateTriangle(n);
     for(int i=0;i<n;i++){
         for(int j=0;j<i+1;j++){
