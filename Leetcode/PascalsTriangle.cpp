@@ -19,6 +19,7 @@ vector<vector<int> > generateTriangle(int n){
         arr[i][i]=1;
     }
 
+    // we start from 2nd index bcoz 0th and 1st index contain 1 and 1 1 which we have already set, so no need to set them again
     for(int i=2;i<n;i++){
         for(int j=1;j<n;j++){
             // the current element is the sum of two numbers which are directly above it

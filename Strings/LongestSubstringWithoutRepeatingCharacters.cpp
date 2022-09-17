@@ -22,7 +22,7 @@ int maxLength(string str){
             // in such case break out of the loop
             if(visited[str[j]]==true){
                 break;
-            }
+            }   
 
             // else update the result and mark the character as visited
             else{
