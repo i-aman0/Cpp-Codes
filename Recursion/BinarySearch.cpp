@@ -2,7 +2,7 @@
 using namespace std;
 
 bool solve(int* arr, int start, int end, int key){
-    int mid=(start+end)/2;
+    int mid=start+(end-start)/2;
 
     if(start>end){
         return false;
