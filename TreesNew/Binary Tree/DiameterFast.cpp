@@ -165,7 +165,7 @@ pair<int, int> diameterFast(node* root){
 
     // storing diameter in first part of pair 
     ans.first=max(op1, max(op2, op3));
-
+ 
     // storing height in second part of pair
     ans.second=max(left.second, right.second)+1;
 

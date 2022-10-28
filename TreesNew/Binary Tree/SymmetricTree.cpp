@@ -1,8 +1,10 @@
 #include<iostream>
 #include<queue>
+#include<map>
 using namespace std;
 
-// the diameter of a binary tree is the longest path between two leaf nodes 
+// given a tree, check whether it is symmetric or not 
+// a tree is symmetric if it a mirror of itself (i.e. symmetric around its center)
 
 class node{
     public:
@@ -125,23 +127,6 @@ int height(node* root){
     return ans;
 }
 
-
-// in this approach where we find the diameter of right, diameter of left and height of left and right,
-// the time complexity is O(n^2) bcoz we are calling height function (O(n)) nested in diameter function(O(n))
-// this problem can be solved if while recursively calling the diameter function, we return diameter as well as height in the same function call
-int diamater(node* root){
-    if(root==NULL){
-        return 0;
-    }
-
-    int left=diamater(root->left);
-    int right=diamater(root->right);
-
-    int diameterComplete=height(root->left)+height(root->right)+1;
-
-    return max(left, max(right, diameterComplete));
-}
-
 int minHeight(node* root){
     if(root==NULL){
         return 0;
@@ -163,8 +148,31 @@ int minHeight(node* root){
     return ans;
 }
 
-int main()
-{
+bool isMirror(node* root1, node* root2){
+
+    // if both the trees are null, they are mirror
+    if(root1==NULL && root2==NULL){
+        return true;
+    }
+
+    // if both the roots are not null and their data are same, they may be mirror
+    // in such case check for their child subtrees
+    if(root1 && root2 && (root1->data==root2->data)){
+        
+        // left of one subtree should be mirror of right of another and vice versa
+        return isMirror(root1->left, root2->right) && isMirror(root1->right, root2->left);
+    }
+
+    // if non of the above is true, the trees are not mirror of each other
+    return false;
+}
+
+bool isSymmetric(node* root){
+    return isMirror(root, root);
+}
+
+
+int main() {
     // data to be entered
     // 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 -1
 
@@ -193,7 +201,13 @@ int main()
     cout<<"The height of binary tree is : "<<height(root)<<endl;
 
     cout<<"The minimum height of binary tree is : "<<minHeight(root)<<endl;
+    
+    if(isSymmetric(root)){
+        cout<<"The tree is symmetric"<<endl;
+    }
+    else{
+        cout<<"The tree is not symmetric"<<endl;
+    }
 
-    cout<<"The diameter of binary tree is : "<<diamater(root)<<endl;
     return 0;
 }

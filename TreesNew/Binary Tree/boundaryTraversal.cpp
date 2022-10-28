@@ -2,7 +2,14 @@
 #include<queue>
 using namespace std;
 
-// given a tree, find the zig-zag traversal of the tree
+// given a tree, find the boundary traversal of the tree
+
+// Approach : 
+//         1. Boundary traversal of left subtree without leaf nodes
+//         2. Traversal of all the leaf nodes of left and right subtree separately
+//         3. Boundary travesal of right subtree
+//             in this case the traversal will be in reverse order
+//             i.e. value will be stores in the array after coming from recursive call
 
 class node{
     public:
@@ -200,6 +207,7 @@ void traverseRight(node* root, vector<int> &ans){
     }
 
     // wapas a gaye to value store kr lo
+    // store the values after coming from recursive call bcoz right side me bottomt to up traversal hoga
     ans.push_back(root->data);
 }
 
@@ -212,6 +220,7 @@ vector<int> boundary(node* root){
     }
 
     // store the data of root in the array
+    // bcoz boundary traversal starts from root itself
     ans.push_back(root->data);
 
     // traverse left subtree except leaf nodes
