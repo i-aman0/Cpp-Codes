@@ -19,7 +19,9 @@ int main()
 {
     int arr[]={3,5,1,2,6};
     int size=5;
-    int key=2;
+    int key;
+    cout<<"Enter the number you want to search"<<endl;
+    cin>>key;
 
     bool ans=linearSearch(arr, size, key);
 
