@@ -9,7 +9,6 @@ bool isSorted(int* arr, int size){
     }
 
     // checking if first and second element of the array are not sorted
-    // if not return false
     if(arr[0]>arr[1]){
         return false;
     }
