@@ -28,6 +28,8 @@ using namespace std;
 // }
 
 bool isPalindrome(string str, int i, int j){
+    // base case
+    // if compare karte karte pointers cross kar gye to palindrome h 
     if(i>j){
         return true;
     }
