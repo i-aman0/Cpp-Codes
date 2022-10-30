@@ -9,6 +9,7 @@ void sortArray(int* arr, int size){
 
     // 1 case solve kr lo, rest will be handled by recursion
     // puts the largest element at the end of array 
+    // again when second recursive call happens, puts the second largest element at the second last position in the array
     for(int i=0; i<size-1; i++){
         if(arr[i]>arr[i+1]){
             swap(arr[i], arr[i+1]);
