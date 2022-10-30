@@ -4,7 +4,8 @@ using namespace std;
 // two ways to solve : 
 // 1. when dividing the array from the middle element into two halves, we do not divide the original array
 //    instead we create 2 separate new arrays and copy the elements into them 
-// 2. when dividing the array from the middle elemetn into two halves, we use the indexes and actually divide the arrays based on the value of indexes
+// 2. when dividing the array from the middle elemetn into two halves, 
+//    we use the indexes and actually divide the arrays based on the value of indexes
 
 void merge(int* arr, int start, int end){
     int mid=start+(end-start)/2;
