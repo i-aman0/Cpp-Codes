@@ -62,6 +62,10 @@ void merge(int* arr, int start, int end){
         k++;
         index2++;
     }
+
+    // deleting the dynamically allocated array to avoid memory leak
+    delete []first;
+    delete []second;
     
 
 }
