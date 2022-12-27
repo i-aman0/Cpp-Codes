@@ -8,7 +8,7 @@ void solve(string digit, string output, int index, string mapping[], vector<stri
         return;
     }
 
-    int number=digit[index]-'0';
+    int number=digit[index]-'0'; // digit[index] gives character but we want integer that's why subtract '0' from it 
     string val=mapping[number];
 
     for(int i=0; i<val.length(); i++){
@@ -35,7 +35,7 @@ vector<string> letterCombination(string digits){
 
 int main()
 {
-    string str="23";
+    string str="234";
 
     vector<string> ans=letterCombination(str);
 
