@@ -5,10 +5,6 @@ using namespace std;
 class Example{
     public:
     int n;
-    int n3;
-    int n0;
-    int n00;
-    int n000;
     
     vector<int> a = vector<int> (10, 0);
 };

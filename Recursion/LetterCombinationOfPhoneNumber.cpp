@@ -14,7 +14,7 @@ void solve(string digit, string output, int index, string mapping[], vector<stri
     for(int i=0; i<val.length(); i++){
         output.push_back(val[i]);
         solve(digit, output, index+1, mapping, ans);
-        output.pop_back();
+        output.pop_back();  // bcoz we only want the combinations not the individual characters
     }
 }
 

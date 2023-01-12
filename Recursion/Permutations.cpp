@@ -17,7 +17,7 @@ void solve(vector<int> nums, vector<vector<int> > &ans, int index){
     for(int j=index; j<nums.size(); j++){
         swap(nums[index], nums[j]);
         solve(nums, ans, index+1);
-        swap(nums[index], nums[j]);
+        swap(nums[index], nums[j]); // backtracking i.e. swapping the same elements again to maintain the order of the original array of the numbers
     }
 }
 
