@@ -1,0 +1,31 @@
+.container{
+    /* display: flex; */
+    border: 2px Solid black;
+    justify-content: space-between;
+    background-color: coral;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: center;
+}
+
+.list{
+    flex: 1;
+    text-align: right;
+}
+
+.list li{
+    display: inline-block;
+    list-style: none;
+    margin: 0 20px;
+}
+
+.list li a{
+    text-decoration: none;
+    color: white;
+}
+
+
