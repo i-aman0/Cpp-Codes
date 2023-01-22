@@ -1,8 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-class Solution {
-public:
+
     vector<int> searchRange(vector<int>& nums, int target) {
         vector<int> ret;
         ret.push_back(-1);
@@ -62,7 +61,6 @@ public:
         return ret;
         
     }
-};
 
 int main()
 {
@@ -73,9 +71,12 @@ int main()
     v1.push_back(8);
     v1.push_back(8);
     v1.push_back(10);
+    
+    vector<int> ans = searchRange(v1,8);
 
-    Solution s1;
-    s1.searchRange(v1,8);
+    for(int i = 0; i < ans.size(); i++){
+        cout << ans[i] << " " ;
+    }
 
     return 0;
 }
