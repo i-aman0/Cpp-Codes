@@ -5,7 +5,8 @@ using namespace std;
 
 // On each day, you may decide to buy and/or sell the stock. 
 // You can only hold at most one share of the stock at any time.
-// However, you can buy it then immediately sell it on the same day.
+// However, you can buy it then immediately sell it on the same day
+// or sell and then buy on the same day
 
 
 // if buyAllowed = 1, buying of the stock is allowed and you can buy or skip the stock
