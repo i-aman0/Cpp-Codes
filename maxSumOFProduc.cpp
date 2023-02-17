@@ -1,0 +1,69 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+using ll = long long int;
+
+class TC
+{
+
+public:
+    void solve()
+    {
+        int n;
+        cin >> n;
+        vector<ll> a(n), b(n);
+        for (auto &x : a)
+        {
+            cin >> x;
+        }
+        for (auto &x : b)
+        {
+            cin >> x;
+        }
+
+        vector<ll> pre(1);
+        for (int i = 0; i < n; i++)
+        {
+            pre.push_back(pre.back() + (a[i] * b[i]));
+        }
+
+        ll mx = pre.back();
+        for (int i = 0; i < n; i++)
+        {
+
+            ll sum = a[i] * b[i];
+            for (int l = i - 1, r = i + 1; l >= 0 && r < n; l--, r++)
+            {
+                sum += a[l] * b[r];
+                sum += a[r] * b[l];
+                mx = max(mx, sum + pre[l] + pre[n] - pre[r + 1]);
+            }
+            sum = 0;
+            for (int l = i, r = i + 1; l >= 0 && r < n; l--, r++)
+            {
+                sum += a[l] * b[r];
+                sum += a[r] * b[l];
+                mx = max(mx, sum + pre[l] + pre[n] - pre[r + 1]);
+            }
+        }
+
+        cout << mx << endl;
+    }
+};
+
+int main()
+{
+
+
+    int t;
+    cin >> t;
+    while(t){
+        TC tc;
+        tc.solve();
+        t--;
+    }
+
+    return 0;
+}
