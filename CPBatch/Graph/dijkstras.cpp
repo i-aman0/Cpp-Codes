@@ -9,7 +9,8 @@ using namespace std;
 #define INF 9999
 
 void dijkstras(int src, unordered_map<int, list<pair<int, int> > > &adj, map<int, int> &dist){
-    priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > pq;
+    
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
     pq.push({0, src});
     dist[src] = 0;
@@ -47,7 +48,7 @@ int main()
         {7, 8, 7}
     };
 
-    unordered_map<int, list<pair<int, int> > > adj;
+    unordered_map<int, list<pair<int, int>>> adj;
 
     // we use map here so that the result stored is sorted for our convenience 
     // can use unordered map as well 

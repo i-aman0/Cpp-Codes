@@ -18,8 +18,9 @@ void display(vector<vector<int> > &graph){
 int primsMST(int src, unordered_map<int, list<pair<int, int> > > &adj){
     int minWeight = 0;
 
-    // since the greater function compares on the basis of first data
-    // so, we will put weight as the first data in pair
+    // we are using the greater function and since greater function compares the first element of the collection for comparison 
+    // therefore, we are putting weight as the first data in pair
+    // because we want to sort the data according to the weight 
     priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int>> > pq;
 
     unordered_map<int, bool> mstSet;
