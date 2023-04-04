@@ -5,16 +5,22 @@ using namespace std;
 // Given a binary array nums and an integer goal, return the number of non-empty subarrays with a sum goal.
 // https://leetcode.com/problems/binary-subarrays-with-sum/description/
 
+
+
+// the idea is to count all the subarrays with sum upto goal and count all the subarrays with sum upto goal - 1 separately
+// calculate the difference of the two and we will get the count of all the subarrays with sum == goal
+
 int solve(vector<int> &nums, int goal){
     if(goal < 0){
         return 0;
     }
 
-    int i = 0;
+    int i = 0; // start of the window 
     int n = nums.size();
     int sum = 0;
     int count = 0;
 
+    // j represents end of the window 
     for(int j = 0; j < n; j++){
         sum += nums[j];
 
