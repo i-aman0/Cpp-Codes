@@ -2,6 +2,10 @@
 #include<vector>
 using namespace std;
 
+// the idea is to find the length of longest common subsequence (lcs)
+// the length of the shortest common supersequence is st1.length + str2.length - length(lcs)
+// i.e. for shortest common supersequence we need to add the lcs for one time only to minimize its length
+
 string supersequence(string str1, string str2){
     int n = str1.length();
     int m = str2.length();
