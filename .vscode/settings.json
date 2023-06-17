@@ -5,6 +5,7 @@
         "iostream": "cpp",
         "stack": "cpp",
         "iosfwd": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "__node_handle": "cpp"
     }
 }

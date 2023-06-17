@@ -1,61 +1,48 @@
-#include<iostream>
-using namespace std;
-class Employee
-{
-   protected:
-   //Data_Members
-   
+#include <iostream>
+#include <string>
+#include <cmath>
 
-         string employeename;
-         int employeeid;
-         string employeedepartment;
-         int employeesalary;
-    //Member_Functions
-        void input()
-        {
-            cout<<"Enter Employee Name:";
-            cin>>employeename;
-            cout<<"\n Enter Employee id";
-            cin>>employeeid;
-            cout<<"\n Enter Employee Department";
-            cin>>employeedepartment;
-            cout<<"\n Enter Employee Salary";
-            cin>>employeesalary;
+using namespace std;
+
+int getOrder(char ch) {
+    return ch - 'a';
+}
+
+char getChar(int order) {
+    return 'a' + order;
+}
+
+int main() {
+    string s1, s2;
+    cout << "Enter string s1: ";
+    cin >> s1;
+    cout << "Enter string s2: ";
+    cin >> s2;
+
+    if (s1.length() != s2.length()) {
+        cout << "Error: Strings have different lengths." << endl;
+        return 0;
+    }
+
+    int operations = 0;
+    string result = "";
+
+    for (size_t i = 0; i < s1.length(); i++) {
+        int order_s1 = getOrder(s1[i]);
+        int order_s2 = getOrder(s2[i]);
+
+        cout << order_s1 << endl;
+        cout << order_s2 << endl;
+
+        int diff = abs(order_s1 - order_s2);
+        if (diff <= 13) {
+            operations += diff;
+        } else {
+            operations += order_s1 + order_s2 + 1 - 25;
         }
-         
-};
-class Bonus : public Employee{
-    public:
-    //Data_Member
-        int Bonus1;
-        int TotalSalary; 
-        Bonus(){
-            Employee::input();
-        }
-        void calc()
-        {
-            if(employeesalary<10000)
-           Bonus1=0.5*employeesalary;
-        else if (employeesalary>=10001 && employeesalary<20000)
-           Bonus1=0.1*employeesalary;
-        else if (employeesalary>=20001 && employeesalary<40000)
-           Bonus1=0.15*employeesalary;
-        else if(employeesalary>=40001 && employeesalary<50000)
-           Bonus1=0.2*employeesalary;
-        else if(employeesalary>=50001)
-          Bonus1=0.25*employeesalary;
-          cout<<"The total salary is : "<<employeesalary+Bonus1<<endl;
-        }
-         
-        
-};
-int main()
-{
-    //Object for class Employee
-    Employee E;
-    //Object for class Bonus
-    Bonus B; 
+    }
     
-    B.calc();
+    cout << "Number of operations: " << operations << endl;
+
     return 0;
 }

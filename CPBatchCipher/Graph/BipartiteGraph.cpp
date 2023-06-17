@@ -62,6 +62,11 @@ int main()
     
     bool ans = isBipartite(graph);
 
-    cout << "Is the graph bipartite : " << ans << endl;
+    if(ans){
+        cout << "The graph is bipartite" << endl;
+    }
+    else{
+        cout << "The graph is not bipartite" << endl;
+    }
     return 0;
 }
