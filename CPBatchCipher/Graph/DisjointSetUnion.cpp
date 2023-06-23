@@ -57,19 +57,19 @@ int main()
 
     // check whether 3 and 7 belong to the same component or not 
     if(ds.findUltimateParent(3) == ds.findUltimateParent(7)){
-        cout << "Same component" << endl;
+        cout << "Before union 3 & 7 belong to the Same component" << endl;
     }
     else{
-        cout << "Different components" << endl;
+        cout << "Before union 3 & 7 belong to the Different components" << endl;
     }
 
     ds.unionByRank(3, 7);
 
     if(ds.findUltimateParent(3) == ds.findUltimateParent(7)){
-        cout << "Same component" << endl;
+        cout << "After union 3 & 7 belong to the Same component" << endl;
     }
     else{
-        cout << "Different components" << endl;
+        cout << "After union 3 & 7 belong to the Different components" << endl;
     }
     
     return 0;
