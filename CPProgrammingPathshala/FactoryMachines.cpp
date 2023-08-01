@@ -26,7 +26,7 @@ int main(){
     ll t;
     cin >> n >> t;
 
-    vector<ll> time(n);
+    vector<ll> time(n); 
 
     for(ll i = 0; i < n; i++){
         cin >> time[i];
