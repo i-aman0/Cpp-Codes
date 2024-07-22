@@ -148,10 +148,10 @@ int minHeight(node* root){
 }
 
 
-vector<int> verticalTraversal(node* root){
+vector<vector<int>> verticalTraversal(node* root){
     map<int, map<int, vector<int> > > nodes;
     queue<pair<node*, pair<int, int> > > q;
-    vector<int> ans;
+    vector<vector<int>> ans;
 
     if(root==NULL){
         return ans;
@@ -164,7 +164,7 @@ vector<int> verticalTraversal(node* root){
         q.pop();
 
         node* frontNode = temp.first;
-        int hd=temp.second.second;
+        int hd=temp.second.first;
         int lvl=temp.second.second;
 
         nodes[hd][lvl].push_back(frontNode->data);
@@ -178,12 +178,14 @@ vector<int> verticalTraversal(node* root){
         }
     }
     for(auto i: nodes){
+        vector<int> temp;
         for(auto j: i.second)
         {
             for(auto k: j.second){
-                ans.push_back(k);
+                temp.push_back(k);
             }
         }
+        ans.push_back(temp);
     }
     return ans;
 }
@@ -220,10 +222,14 @@ int main()
 
     cout<<"The minimum height of binary tree is : "<<minHeight(root)<<endl;
 
-    vector<int> res=verticalTraversal(root);
+    vector<vector<int>> res=verticalTraversal(root);
     cout<<"The vertical traversal of binary tree is : "<<endl;
     for(auto i: res){
-        cout<<i<<" ";
+        for(auto j : i){
+            cout << j << " ";
+        }
+
+        cout << endl;
     }
 
     return 0;
