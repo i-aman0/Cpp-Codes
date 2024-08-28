@@ -38,6 +38,7 @@ void insert_before_largest(int item, int index)
 int main()
 {
     int item,index;
+    int size;
     cout<<"Enter the size of Array"<<endl;
     cin>>size;
 
